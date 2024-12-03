@@ -1,12 +1,10 @@
-m = 'IMPOSSIBLE';
-
 r = (n, c = ' ') => c.repeat(n);
-
-b = r(10);
 
 w = +process.argv[2] - 10;
 
-a = [
+d = [[0, []]];
+
+for (e of [
   ['G', 50],
   ['F', 40],
   ['E', 30],
@@ -14,11 +12,7 @@ a = [
   ['C', 10],
   ['B', 5],
   ['A', 3],
-];
-
-d = [[0, []]];
-
-for (e of a) {
+]) {
   x = e[1];
   for (j = x; j <= w; j++) {
     if (!!d[j - x]) {
@@ -47,7 +41,7 @@ l = (q) => u.slice(-q).join('');
 h = (q) => u.slice(-q).reverse().join('');
 g = (cal, spal) => {
   for (i = 1; i < n; i++) {
-    o.push([r(spal(i) + 1), l(cal(i)), b, h(cal(i))].join(''));
+    o.push([r(spal(i) + 1), l(cal(i)), r(10), h(cal(i))].join(''));
   }
 };
 
@@ -65,4 +59,4 @@ g(
   (i) => i,
 );
 
-console.log(w < 0 || !d[w] ? m : o.join('\n'));
+console.log(w < 0 || !d[w] ? 'IMPOSSIBLE' : o.join('\n'));
