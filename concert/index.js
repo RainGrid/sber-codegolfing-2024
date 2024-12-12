@@ -3,15 +3,16 @@ c = process.argv;
 M = c.pop() * s;
 T = c.slice(3);
 
-d = Array(M + 1).fill(0);
+d = [];
 l = [];
 
 T.map((b) => {
   [o, y, v] = b.split(/ |:/);
   k = y * s + +v;
   for (let j = M; j >= k; j--) {
-    if (d[j - k] + k > d[j]) {
-      d[j] = d[j - k] + k;
+    f = (d[j - k] ?? 0) + k;
+    if (f > (d[j] ?? 0)) {
+      d[j] = f;
       l[j] = [...(l[j - k] ?? []), o];
     }
   }
