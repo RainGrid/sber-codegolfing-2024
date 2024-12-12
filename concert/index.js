@@ -1,37 +1,25 @@
-let sinm = 60;
-let args = process.argv.slice(2);
-let N = +args[0];
-let songs = [];
+s = 60;
+c = process.argv;
+M = c.pop() * s;
+[N, ...T] = c.slice(2);
 
-for (let i = 1; i <= N; i++) {
-  let [name, songDuration] = args[i].split(' ');
-  let [minutes, seconds] = songDuration.split(':').map((n) => +n);
-  let durationInSeconds = minutes * sinm + seconds;
-  songs.push([name, durationInSeconds]);
-}
+d = Array(M + 1).fill(0);
+l = d.map((u) => []);
 
-let maxTimeInSeconds = args[N + 1] * sinm;
+r = 0;
 
-let dp = Array(maxTimeInSeconds + 1).fill(0);
-
-let selected = Array(maxTimeInSeconds + 1).fill([]);
-
-let maxDuration = 0;
-
-for (let song of songs) {
-  let dur = song[1];
-  for (let j = maxTimeInSeconds; j >= dur; j--) {
-    if (dp[j - dur] + dur > dp[j]) {
-      dp[j] = dp[j - dur] + dur;
-      maxDuration = dp[j] > maxDuration ? dp[j] : maxDuration;
-
-      selected[j] = [...selected[j - dur], song[0]];
+T.map((b) => {
+  [o, z] = b.split` `;
+  [y, v] = z.split`:`;
+  k = y * s + +v;
+  for (let j = M; j >= k; j--) {
+    if (d[j - k] + k > d[j]) {
+      d[j] = d[j - k] + k;
+      r = d[j] > r ? d[j] : r;
+      l[j] = [...l[j - k], o];
     }
   }
-}
+});
 
-let pad = (s) => `${s}`.padStart(2, '0');
-[
-  ...selected[dp.indexOf(maxDuration)],
-  pad((maxDuration / sinm) | 0) + ':' + pad(maxDuration % sinm),
-].map((n) => console.log(n));
+p = (s) => `${s}`.padStart(2, '0');
+console.log([...l[d.indexOf(r)], p((r / s) | 0) + ':' + p(r % s)].join`\n`);
