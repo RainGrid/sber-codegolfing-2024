@@ -17,7 +17,7 @@ T.map((b) => {
   }
 });
 
-r = Math.max(...d);
+r = d.at(-1);
 
 p = (s) => ('' + s).padStart(2, '0');
-console.log([...l[d.indexOf(r)], p((r / s) | 0) + ':' + p(r % s)].join`\n`);
+console.log([...l.at(-1), p((r / s) | 0) + ':' + p(r % s)].join`\n`);
