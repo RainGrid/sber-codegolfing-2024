@@ -1,10 +1,10 @@
 s = 60;
 c = process.argv;
 M = c.pop() * s;
-[N, ...T] = c.slice(2);
+T = c.slice(3);
 
 d = Array(M + 1).fill(0);
-l = d.map((u) => []);
+l = [];
 
 r = 0;
 
@@ -16,10 +16,10 @@ T.map((b) => {
     if (d[j - k] + k > d[j]) {
       d[j] = d[j - k] + k;
       r = d[j] > r ? d[j] : r;
-      l[j] = [...l[j - k], o];
+      l[j] = [...(l[j - k] ?? []), o];
     }
   }
 });
 
-p = (s) => `${s}`.padStart(2, '0');
+p = (s) => ('' + s).padStart(2, '0');
 console.log([...l[d.indexOf(r)], p((r / s) | 0) + ':' + p(r % s)].join`\n`);
