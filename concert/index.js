@@ -9,8 +9,7 @@ l = [];
 r = 0;
 
 T.map((b) => {
-  [o, z] = b.split` `;
-  [y, v] = z.split`:`;
+  [o, y, v] = b.split(/ |:/);
   k = y * s + +v;
   for (let j = M; j >= k; j--) {
     if (d[j - k] + k > d[j]) {
