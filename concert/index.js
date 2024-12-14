@@ -4,17 +4,17 @@ M = c.at(-1) * s;
 d = {};
 l = {};
 
-for (b of c) {
+c.map((b) => {
   [o, y, v] = b.split(/ |:/);
   k = y * s + +v;
   for (j = M; j >= k; j--) {
-    f = d[j - k] + k || k;
+    f = +[d[j - k]] + k;
     if (f > [d[j]]) {
       d[j] = f;
       l[j] = [l[j - k]] + o + '\n';
     }
   }
-}
+});
 
 p = (x) => (x > 9 ? x : '0' + x);
 
