@@ -9,7 +9,7 @@ for (b of c) {
   k = y * s + +v;
   for (j = M; j >= k; j--) {
     f = d[j - k] + k || k;
-    if (f > (d[j] || 0)) {
+    if (f > [d[j]]) {
       d[j] = f;
       l[j] = [l[j - k]] + o + '\n';
     }
