@@ -1,6 +1,5 @@
 s = 60;
-c = process.argv;
-M = c.at(-1) * s;
+M = (c = process.argv).pop() * s;
 
 p = (x) => (x > 9 ? x : '0' + x);
 
