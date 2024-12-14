@@ -3,7 +3,7 @@ M = (c = process.argv).pop() * s;
 
 p = (x) => (x > 9 ? x : '0' + x);
 
-c.map((b) => {
+for (b of c) {
   [o, y, v] = b.split(/ |:/);
   k = +v + y * s;
   for (j = M; j >= k; j--) {
@@ -13,6 +13,6 @@ c.map((b) => {
       p[-j] = [p[k - j]] + o + '\n';
     }
   }
-});
+}
 
 console.log(p[-M] + p((p[M] / s) | 0) + ':' + p(p[M] % s));
