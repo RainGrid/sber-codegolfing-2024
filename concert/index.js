@@ -4,7 +4,7 @@ c = process.argv;
 d = [];
 l = [];
 
-c.slice(3, -1).map((b) => {
+c.map((b) => {
   [o, y, v] = b.split(/ |:/);
   k = y * s + +v;
   for (j = c.at(-1) * s; j >= k; ) {
