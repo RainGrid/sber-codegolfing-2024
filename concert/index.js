@@ -7,8 +7,8 @@ for (b of c) {
   [o, y, v] = b.split(/ |:/);
   k = +v + y * s;
   for (j = M; j >= k; j--) {
-    f = +[p[j - k]] + k;
-    if (f > [p[j]]) {
+    f = ~~p[j - k] + k;
+    if (f > ~~p[j]) {
       p[j] = f;
       p[-j] =
         [p[k - j]] +
