@@ -1,14 +1,7 @@
-e = (str) => new Date(str);
-
 ('' + process.argv.slice(4))
   .split(/ |,/)
-  .map((d) => d.split('.').reverse().join('-'))
+  .map((s) =>
+    new Date(new Date(s.split`.`.reverse().join`-`) - 2592e5).toJSON(),
+  )
   .sort()
-  .map(
-    (a, i) => (
-      ([y, m, d] = e(e(a) - 259200000)
-        .toJSON()
-        .split(/-|T/)),
-      i < 3 && console.log(d + '.' + m + '.' + y)
-    ),
-  );
+  .map((s, i) => i < 3 && console.log(s.split(/\D/, 3).reverse().join`.`));
